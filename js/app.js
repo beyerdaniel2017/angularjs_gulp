@@ -16,25 +16,15 @@ angular.module('todomvc', ['ngRoute','todoPartials'])
 
 		var routeConfig = {
 			controller: 'TodoCtrl',
-			templateUrl: '/partials/todomvc-index.html',
-			resolve: {
-				store: ['todoStorage', function (todoStorage) {
-					// Get the correct module (API or localStorage).
-					return todoStorage;
-				}]
-			}
+			templateUrl: '/partials/index.html',
 		};
 
 		$routeProvider
 			.when('/', routeConfig)
-			.when('/:status', routeConfig)
 			.otherwise({
 				redirectTo: '/'
 			});
 	});
 
 require('todoCtrl');
-require('todoStorage');
-require('todoFocus');
-require('todoEscape');
 require('footer');

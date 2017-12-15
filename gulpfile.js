@@ -93,27 +93,6 @@ gulp.task('jshint', function() {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
-// runs karma tests
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('test', ['build-js'], function() {
-    var testFiles = [
-        './test/unit/*.js'
-    ];
-
-    return gulp.src(testFiles)
-        .pipe(karma({
-            configFile: 'karma.conf.js',
-            action: 'run'
-        }))
-        .on('error', function(err) {
-            console.log('karma tests failed: ' + err);
-            throw err;
-        });
-});
-/////////////////////////////////////////////////////////////////////////////////////
-//
 // Build a minified Javascript bundle - the order of the js files is determined
 // by browserify
 //
@@ -210,4 +189,4 @@ gulp.task('sprite', function () {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task('default', ['sprite','build', 'test']);
+gulp.task('default', ['sprite','build']);
